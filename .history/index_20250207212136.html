@@ -1,0 +1,258 @@
+<html>
+  <head>
+    <title>
+      Understanding LLMs’ Fluid Intelligence Deficiency: An Analysis of the ARC Task 
+    </title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><text y=%2226%22 font-size=%2232%22>🦜</text></svg>"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="paper-title">
+        Understanding LLMs’ Fluid Intelligence Deficiency:
+        <br />
+        An Analysis of the ARC Task
+      </div>
+      <div>
+        <!-- * Paper -->
+        <span class="link-block">
+          <a target="_blank" href="./paper.pdf"
+            ><img
+              class="badge"
+              src="https://img.shields.io/badge/Paper-PDF-red?&labelColor=lightgray&logo=arxiv&logoColor=brown" /><img
+          /></a>
+        </span>
+        <!-- * Dataset -->
+        <!--
+        <span class="link-block">
+          <a
+            target="_blank"
+            href="https://huggingface.co/datasets/ShunchiZhang/PhysiCo/"
+            ><img
+              class="badge"
+              src="https://img.shields.io/badge/HuggingFace-Dataset-yellow?labelColor=lightgray&logo=huggingface" /><img
+          /></a>
+        </span>
+        -->
+
+        <!-- * Code -->
+         <!--
+        <span class="link-block">
+          <a target="_blank" href="https://github.com/physico-benchmark/physico"
+            ><img
+              class="badge"
+              src="https://img.shields.io/badge/GitHub-Code-gray?labelColor=lightgray&logo=github&logoColor=gray" /><img /></a
+        ></span>
+        -->
+        <!-- * Leaderboard -->
+        <!--
+        <span class="link-block">
+          <a href="./leaderboard.html"
+            ><img
+              class="badge"
+              src="https://img.shields.io/badge/Leaderboard-Visit-blue?labelColor=lightgray&logo=stackblitz&logoColor=367BAF" /><img /></a
+        ></span>
+        -->
+        <!-- * X Threads -->
+        <!--
+        <span class="link-block">
+          <a href="https://x.com/jieeijjie/status/1876713099752861782"
+            ><img
+              class="badge"
+              src="https://img.shields.io/badge/Threads-black?labelColor=lightgray&logo=x&logoColor=gray" /><img /></a
+        ></span>
+        -->
+
+      </div>
+      <div>
+        <div class="author-list">
+          <span class="author-block"
+            ><a href="https://wujunjie1998.github.io/">Junjie Wu</a
+            ><sup>1</sup></span
+          >
+          <span class="author-block"
+            ><a href="https://sites.google.com/site/moyunlp/">Mo Yu</a
+            ><sup>2</sup></span
+          >
+          <span class="author-block"
+            ><a href="https://lemaoliu.github.io/homepage/">Lemao Liu</a
+            ><sup>2</sup></span
+          >
+          <span class="author-block"
+            ><a href="https://sites.google.com/view/dyyeung">Dit-Yan Yeung</a
+            ><sup>1</sup></span
+          >
+          <span class="author-block"
+            ><a href="https://openreview.net/profile?id=~Jie_Zhou8">Jie Zhou</a
+            ><sup>2</sup></span
+          >
+        </div>
+        <div class="inst-list">
+          <span class="institution-block"><sup>1</sup> Hong Kong University of Science and Technology</span>
+          <span class="institution-block"><sup>2</sup> WeChat AI</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="teaser">
+      <center>
+        <img src="./img/teaser.png" />
+        <figcaption>
+          Illustration of a "Stochastic Parrot 🦜" by our
+          <span class="dataset-name">PhysiCo</span> task consisting of both
+          <b style="color: #a47b48">low-level</b> and
+          <b style="color: #153cf9">high-level</b> subtasks in parallel. For a
+          concept <i>Gravity</i>, an LLM can generate its accurate description
+          in natural language, but cannot interpret its grid-format
+          illustration.
+        </figcaption>
+      </center>
+    </div>
+
+    <hr />
+
+    <!-- ^ Summary of Our Research -->
+    <center><h1>Summary of Our Research</h1></center>
+    <div class="content">
+      <!-- <p style="font-size: large; text-align: center">
+        <b>TL;DR:</b>
+      </p> -->
+      <p>
+        While LLMs have exhibited strong performance on various NLP tasks, it is noteworthy that most of these tasks rely on utilizing the vast amount of knowledge encoded in LLMs’ parameters, rather than solving new problems without prior knowledge. In cognitive research, the latter ability is referred to as <strong>fluid intelligence</strong>, which is considered to be critical for assessing human intelligence. Recent research on fluid intelligence assessments has highlighted significant deficiencies in LLMs’ abilities. In this paper, we analyze the challenges LLMs face in demonstrating fluid intelligence through controlled experiments, using the most representative ARC task as an example. Our study revealed three major limitations in existing LLMs:
+      </p>
+      <ol>
+        <li>limited ability for skill composition;</li>
+        <li>
+          unfamiliarity with abstract input formats;
+        </li>
+        <li>
+          the intrinsic deficiency of left-to-right decoding.
+        </li>
+      </ol>
+    </div>
+
+    <!-- ^ Physical Concepts Covered by `PhysiCo` -->
+    <center>
+      <h1>
+        Physical Concepts Covered by <span class="dataset-name">PhysiCo</span>
+      </h1>
+    </center>
+    <div class="content narrower">
+      <p>
+        <strong>Core-Dev Set.</strong>&ensp;<span style="font-size: smaller">
+          <span style="color: darkgray">acceleration</span>
+          <span style="color: gray">buoyancy</span>
+          <span style="color: darkgray">communicating vessels</span>
+          <span style="color: gray">compression</span>
+          <span style="color: darkgray">cut</span>
+          <span style="color: gray">diffraction of waves</span>
+          <span style="color: darkgray">diffuse reflection of light</span>
+          <span style="color: gray">diffusion</span>
+          <span style="color: darkgray">electricity</span>
+          <span style="color: gray">expansion</span>
+          <span style="color: darkgray">gravity</span>
+          <span style="color: gray">inertia</span>
+          <span style="color: darkgray">laser</span>
+          <span style="color: gray">lever</span>
+          <span style="color: darkgray">light imaging</span>
+          <span style="color: gray">move</span>
+          <span style="color: darkgray">nuclear fission</span>
+          <span style="color: gray">nuclear fusion</span>
+          <span style="color: darkgray">reference frame</span>
+          <span style="color: gray">reflection</span>
+          <span style="color: darkgray">refraction</span>
+          <span style="color: gray">repulsive force</span>
+          <span style="color: darkgray"
+            >spectrum of light and optical filters</span
+          >
+          <span style="color: gray">surface tension</span>
+          <span style="color: darkgray">vortex</span>
+          <span style="color: gray">wave</span>
+          <span style="color: darkgray">wave interference</span></span
+        >
+      </p>
+      <p>
+        <strong>Core-Test Set.</strong>&ensp;<span style="font-size: smaller">
+          <span style="color: darkgray">Bernoulli effect</span>
+          <span style="color: gray">Brownian motion</span>
+          <span style="color: darkgray">atmospheric pressure</span>
+          <span style="color: gray">doppler effect</span>
+          <span style="color: darkgray">elastic force</span>
+          <span style="color: gray">electromagnetic wave</span>
+          <span style="color: darkgray">energy conservation</span>
+          <span style="color: gray">fictitious force</span>
+          <span style="color: darkgray">fluid pressure</span>
+          <span style="color: gray">force composition</span>
+          <span style="color: darkgray">friction</span>
+          <span style="color: gray">heat conduction</span>
+          <span style="color: darkgray">inclined plane</span>
+          <span style="color: gray">lifting</span>
+          <span style="color: darkgray">lighting</span>
+          <span style="color: gray">melting</span>
+          <span style="color: darkgray">oscillation</span>
+          <span style="color: gray">photoelectric effect</span>
+          <span style="color: darkgray">pulley</span>
+          <span style="color: gray">relativity</span>
+          <span style="color: darkgray">resonance</span>
+          <span style="color: gray">siphon</span>
+          <span style="color: darkgray">splashing</span>
+          <span style="color: gray">thermal expansion and contraction</span>
+          <span style="color: darkgray">vaporization</span></span
+        >
+      </p>
+      <p>
+        <strong>Associative-Test Set.</strong>&ensp;<span
+          style="font-size: smaller"
+        >
+          <span style="color: darkgray">change of reference frame</span>
+          <span style="color: gray">chemical bond</span>
+          <span style="color: darkgray">compression</span>
+          <span style="color: gray">diffusion</span>
+          <span style="color: darkgray">expansion</span>
+          <span style="color: gray">explosion</span>
+          <span style="color: darkgray">gravity</span>
+          <span style="color: gray">laser</span>
+          <span style="color: darkgray">long exposure</span>
+          <span style="color: gray">lumination</span>
+          <span style="color: darkgray">magnet</span>
+          <span style="color: gray">mirror</span>
+          <span style="color: darkgray">move</span>
+          <span style="color: gray">nuclear fission</span>
+          <span style="color: darkgray">nuclear fusion</span>
+          <span style="color: gray">optical filter</span>
+          <span style="color: darkgray">polarization of light</span>
+          <span style="color: gray">projection</span>
+          <span style="color: darkgray">reflection</span>
+          <span style="color: gray">rotation</span>
+          <span style="color: darkgray">squeeze</span>
+          <span style="color: gray">vacuum</span>
+          <span style="color: darkgray">vortex</span>
+          <span style="color: gray">water ripples</span>
+          <span style="color: darkgray">wave</span>
+          <span style="color: gray">wave interference</span>
+          <span style="color: darkgray">wetting</span>
+          <span style="color: gray">zoom in</span>
+          <span style="color: darkgray">zoom out</span></span
+        >
+      </p>
+    </div>
+
+    <!-- ^ Our Studies and Findings -->
+    <center><h1>Our Studies and Findings</h1></center>
+    <div class="content">
+      <!-- <p>Foo Bar</p> -->
+      <center>
+        <img src="./img/rq.png" width="70%" />
+        <!-- <figcaption style="text-align: center">
+          6 Research Questions (RQs) and 3 Hypotheses
+        </figcaption> -->
+      </center>
+    </div>
+  </body>
+</html>
