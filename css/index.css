@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  font-weight: 400;
+  font-size: 18px;
+  margin: 50px auto;
+  width: 65%;
+}
+
+div.header,
+div.teaser,
+div.content {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.narrower {
+  width: 80% !important;
+}
+
+div.header div {
+  margin: 6px;
+  text-align: center;
+}
+
+div.teaser img {
+  max-width: 60%;
+}
+
+.paper-title {
+  font-size: 36px;
+}
+
+.author-block {
+  font-size: 20px;
+  margin: 0px 12px;
+}
+
+.institution-block {
+  font-size: 16px;
+  margin: 0px 10px;
+}
+
+.note-block {
+  color: gray;
+  font-size: 16px;
+}
+
+.link-block {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0px 5px;
+}
+
+.badge {
+  width: auto;
+  height: 2vw;
+}
+
+.dataset-name {
+  font-weight: bold;
+  color: #81a526;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 300;
+}
+
+.disclaimerbox {
+  background-color: #eee;
+  border: 1px solid #eeeeee;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  padding: 20px;
+}
+
+video.header-vid {
+  height: 140px;
+  border: 1px solid black;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+figcaption {
+  margin: 10px 0px;
+  width: 80%;
+  text-align: left;
+}
+
+img.header-img {
+  height: 140px;
+  border: 1px solid black;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+img.rounded {
+  border: 1px solid #eeeeee;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+a:link,
+a:visited {
+  color: #1367a7;
+  text-decoration: none;
+}
+a:hover {
+  color: #208799;
+}
+
+td.dl-link {
+  height: 160px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.vert-cent {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.citation {
+  text-align: left;
+  font-family: monospace;
+  font-size: 8pt;
+  text-wrap: auto;
+}
+
+@media screen and (max-width: 1120px) {
+  body {
+    font-size: 16px;
+    width: 90%;
+  }
+  div.teaser img {
+    max-width: 100%;
+  }
+  .paper-title {
+    font-size: 26px;
+  }
+  .author-block,
+  .institution-block,
+  .note-block {
+    font-size: 14px;
+  }
+  .link-block {
+    font-size: 20px;
+  }
+  .badge {
+    width: auto;
+    height: 28px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+  h1 {
+    font-size: 26px;
+  }
+}

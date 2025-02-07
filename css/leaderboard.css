@@ -1,0 +1,218 @@
+/* Basic table styling */
+.table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 20px auto;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Header styling */
+.table th {
+  /* background-color: #f2f2f2; */
+  color: #333;
+  padding: 10px;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Row styling */
+.table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Human performance row styling */
+.human-row {
+  background-color: #eee;
+}
+
+.human-row .institution {
+  font-size: 14px;
+  color: #777;
+  margin: 5px 0;
+}
+
+.human-row a {
+  color: #1367a7;
+  text-decoration: none;
+}
+
+.human-row a:hover {
+  text-decoration: underline;
+}
+
+.random-row {
+  background-color: #eee;
+}
+
+/* Model row styling */
+.table .date {
+  font-size: 12px;
+  color: #888;
+  margin-top: 5px;
+}
+
+.table .institution {
+  font-size: 14px;
+  color: #888;
+  margin: 5px 0;
+}
+
+.table .model-id {
+  font-size: 12px;
+  font-family: monospace;
+  color: #888;
+  margin: 5px 0;
+}
+
+.table .model-id a {
+  color: #888;
+  text-decoration: none;
+}
+
+.table .model-id a:hover {
+  color: #1367a7;
+  text-decoration: underline;
+}
+
+.table .model-source {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.table .variance {
+  font-size: 11px;
+  color: #888;
+}
+
+/* Bold text for performance metrics */
+.table td b {
+  font-weight: bold;
+}
+
+/* Tag styling */
+.table .tag {
+  display: inline-block;
+  padding: 2px 8px;
+  margin: 2px 0px;
+  color: white;
+  border-radius: 12px; /* Rounded corners */
+  font-size: 12px; /* Adjust the font size as needed */
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.table .text-tag {
+  background-color: #4caf50;
+}
+
+.table .vision-tag {
+  background-color: #ff9800;
+}
+
+.table .open-tag {
+  background-color: #2196f3;
+  /* background-color: #1367a7; */
+}
+
+.table .think-tag {
+  background-color: #9c27b0;
+}
+
+.sup-note {
+  vertical-align: super;
+  font-size: smaller;
+  color: brown;
+  font-weight: bold;
+  position: relative;
+}
+
+@media screen and (min-width: 513px) {
+  .sup-note {
+    cursor: help;
+  }
+  .sup-note:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+    opacity: 0.8;
+  }
+}
+
+@media screen and (max-width: 512px) {
+  .table {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .table td {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .human-row .institution,
+  .table .institution,
+  .table .model-source {
+    font-size: 12px;
+  }
+
+  .table .model-id,
+  .table .date,
+  .table .tag {
+    font-size: 10px;
+  }
+
+  .table .variance {
+    font-size: 9px;
+  }
+
+  .sup-note {
+    cursor: pointer;
+  }
+
+  .sup-note::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+
+  .sup-note:focus::after {
+    opacity: 0.8;
+    animation: show-hide 2s forwards;
+  }
+
+  .sup-note:focus {
+    outline: none;
+  }
+
+  @keyframes show-hide {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    10%,
+    90% {
+      opacity: 0.8;
+    }
+  }
+}
